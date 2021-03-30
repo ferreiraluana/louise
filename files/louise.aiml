@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<!-- insert your AIML categories here -->
+  
+  <category>
+    <pattern>OI</pattern>
+    <template> 
+        <random>
+            <li>Olá, o que posso fazer por você? </li>
+            <li> Oi, coisa linda</li>
+            <li> Oiiiiiii (hoje estou empolgada)</li>
+        </random>
+    </template>
+  </category>
+  
+  
+<category>
+<pattern>QUAL E O MEU NOME</pattern>
+<template>
+  <condition name="name">
+    <li value="*"><get name="name" /></li>
+    <li>Você ainda não me disse o seu nome.</li>
+  </condition>
+</template>
+</category>
+
+<category>
+<pattern>MEU NOME E *</pattern>
+<template>Prazer em conhecer-te, <set name="name"/><star /></template>
+</category>
+
+
+  
+  
+  
+
+</aiml>
