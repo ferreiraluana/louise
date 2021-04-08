@@ -2,7 +2,6 @@
 <aiml version="2.0">
 	<!-- insert your AIML categories here -->
   
-  
   <category>
     <pattern> <set>saudacao</set> </pattern>
     <template> 
@@ -21,17 +20,14 @@
             
             <button>
             <text>FORTALEZA</text>
-            
             <postback>DESTINOFORTALEZA</postback>
         </button>
     </template>
-    
   </category>
   
   
   <category>
       <pattern>DESTINOMACEIO</pattern>
-        
       <template>Você já conhece as belezas naturais de Maceió?
       <think><set name="destino">Maceió</set></think> 
       <button>
@@ -43,7 +39,6 @@
             <postback>respostanaoMACEIO</postback>
         </button>
       </template>
-      
   </category>
   
    <category>
@@ -51,25 +46,19 @@
       <template>
           <think><set name="destino">Aracaju</set></think>
           Qual destino você gostaria de conhecer?
-           
-    
          <button>
             <text>PASSARELA DO CARANGUEJO</text>
-            
             <postback>PAGAMENTOCARANGUEJO</postback>
 
         </button>
         <button>
             <text>ORLA DE ARACAJU</text>
-             
             <postback>PAGAMENTOORLAARACAJU</postback>
         </button>
          <button>
             <text>NÃO ESTOU INTERESSADO(A) NO MOMENTO</text>
             <postback> OI </postback>
         </button>
-        
-          
           </template>
   </category>
   
@@ -89,8 +78,6 @@
           </template>
   </category>
   
-  
- 
   
   <category>
       <pattern>respostasimMACEIO</pattern>
@@ -186,13 +173,12 @@
              
             <postback>PAGAMENTOAVIAO</postback>
         </button>
-         
       </template>
   </category>
   
  
   
-   <category>
+    <category>
       <pattern>PAGAMENTONOVEILHAS</pattern>
       <template>
           <think><set name="passeio">passeio das Nove Ilhas</set></think>
@@ -214,7 +200,6 @@
          <category>
       <pattern>PAGAMENTOONIBUS</pattern>
       <template>
-          
           Como você deseja pagar? 
           <button>
             <text>CRÉDITO</text>
@@ -228,9 +213,9 @@
         </template>
         </category>
         
-         <category>
-      <pattern>PAGAMENTOAVIAO</pattern>
-      <template>
+        <category>
+        <pattern>PAGAMENTOAVIAO</pattern>
+        <template>
           Como você deseja pagar? 
           <button>
             <text>CRÉDITO</text>
@@ -249,7 +234,6 @@
         <template>
             <think><set name="pay">crédito</set></think> 
         Seu pedido está sendo processado. Aguarde.
-        
         <delay>3</delay>
           Você vai viajar para <get name="destino"/> e vai fazer o <get name="passeio"/>
           e vai pagar no <get name="pay"/>. Boa viagem!
@@ -262,13 +246,12 @@
         <template>
             <think><set name="pay">débito</set></think> 
         Seu pedido está sendo processado. Aguarde.
-        
         <delay>3</delay>
           Você vai viajar para <get name="destino"/>, vai fazer o <get name="passeio"/> e vai pagar no <get name="pay"/>. Boa viagem!
           </template>
         </category>
   
-   <category>
+        <category>
             <pattern>FINALIZARCREDITOAVIAO</pattern>
         <template>
              <think><set name="transporte">avião</set></think> 
@@ -287,14 +270,12 @@
             <think><set name="transporte">avião</set></think> 
             <think><set name="pay">débito</set></think> 
         Seu pedido está sendo processado. Aguarde.
-        
         <delay>3</delay>
           Você vai viajar para <get name="destino"/>, vai fazer o <get name="passeio"/> e vai pagar no <get name="pay"/>. Obs.: você será transportado por um <get name="transporte"/>. Boa viagem!
           </template>
         </category>
-  
 
-<category>
+        <category>
             <pattern>FINALIZARCREDITOONIBUS</pattern>
         <template>
              <think><set name="transporte">ônibus</set></think> 
@@ -318,9 +299,4 @@
           Você vai viajar para <get name="destino"/>, vai fazer o <get name="passeio"/> e vai pagar no <get name="pay"/>. Obs.: você será transportado por um <get name="transporte"/>. Boa viagem!
           </template>
         </category>
-
-
-
-  
-
 </aiml>
