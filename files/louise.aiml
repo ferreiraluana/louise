@@ -2,36 +2,325 @@
 <aiml version="2.0">
 	<!-- insert your AIML categories here -->
   
+  
   <category>
-    <pattern>OI</pattern>
+    <pattern> <set>saudacao</set> </pattern>
     <template> 
-        <random>
-            <li>Olá, o que posso fazer por você? </li>
-            <li> Oi, coisa linda</li>
-            <li> Oiiiiiii (hoje estou empolgada)</li>
-        </random>
+            Olá, meu nome é Louise e eu sou sua agente de viagens virtual. <br></br>
+            Para onde você quer viajar? <br></br>
+            Os destinos disponíveis hoje são: 
+            <button>
+            <text>MACEIO</text>
+            <postback>DESTINOMACEIO</postback>
+            </button>
+            
+            <button>
+            <text>ARACAJU</text>
+            <postback>DESTINOARACAJU</postback>
+            </button>
+            
+            <button>
+            <text>FORTALEZA</text>
+            
+            <postback>DESTINOFORTALEZA</postback>
+        </button>
     </template>
+    
   </category>
   
   
-<category>
-<pattern>QUAL E O MEU NOME</pattern>
-<template>
-  <condition name="name">
-    <li value="*"><get name="name" /></li>
-    <li>Você ainda não me disse o seu nome.</li>
-  </condition>
-</template>
-</category>
+  <category>
+      <pattern>DESTINOMACEIO</pattern>
+        
+      <template>Você já conhece as belezas naturais de Maceió?
+      <think><set name="destino">Maceió</set></think> 
+      <button>
+            <text>SIM</text>
+            <postback>respostasimMACEIO</postback>
+        </button>
+        <button>
+            <text>NÃO</text>
+            <postback>respostanaoMACEIO</postback>
+        </button>
+      </template>
+      
+  </category>
+  
+   <category>
+      <pattern>DESTINOARACAJU</pattern>
+      <template>
+          <think><set name="destino">Aracaju</set></think>
+          Qual destino você gostaria de conhecer?
+           
+    
+         <button>
+            <text>PASSARELA DO CARANGUEJO</text>
+            
+            <postback>PAGAMENTOCARANGUEJO</postback>
 
-<category>
-<pattern>MEU NOME E *</pattern>
-<template>Prazer em conhecer-te, <set name="name"/><star /></template>
-</category>
-
-
+        </button>
+        <button>
+            <text>ORLA DE ARACAJU</text>
+             
+            <postback>PAGAMENTOORLAARACAJU</postback>
+        </button>
+         <button>
+            <text>NÃO ESTOU INTERESSADO(A) NO MOMENTO</text>
+            <postback> OI </postback>
+        </button>
+        
+          
+          </template>
+  </category>
+  
+   <category>
+      <pattern>DESTINOFORTALEZA</pattern>
+      <template>
+         <think><set name="destino">Fortaleza</set></think>
+          O único pacote disponível para passeio é o passeio pelas Falésias Cearenses. Deseja Continuar?
+          <button>
+            <text>SIM</text>
+            <postback>respostasimFORTALEZA</postback>
+        </button>
+        <button>
+            <text>NÃO</text>
+            <postback> OI </postback>
+        </button>
+          </template>
+  </category>
   
   
+ 
+  
+  <category>
+      <pattern>respostasimMACEIO</pattern>
+      <template>Que legal! Chegou a hora de revisitar!<br></br>
+      Qual desses lugares você quer rever?
+        <button>
+            <text>PASSEIO DAS NOVE ILHAS</text>
+            
+            <postback>PAGAMENTONOVEILHAS</postback>
+
+        </button>
+        <button>
+            <text>ORLA DE MACEIÓ</text>
+             
+            <postback>PAGAMENTOORLA</postback>
+        </button>
+         <button>
+            <text>NÃO ESTOU INTERESSADO(A) NO MOMENTO</text>
+            <postback> OI </postback>
+        </button>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>respostanaoMACEIO</pattern>
+      <template>Então é o momento de conhecer!<br></br>
+      Qual desses lugares você quer conhecer primeiro?
+         <button>
+            <text>PASSEIO DAS NOVE ILHAS</text>
+            
+            <postback>PAGAMENTONOVEILHAS</postback>
+
+        </button>
+        <button>
+            <text>ORLA DE MACEIÓ</text>
+             
+            <postback>PAGAMENTOORLA</postback>
+        </button>
+         <button>
+            <text>NÃO ESTOU INTERESSADO(A) NO MOMENTO</text>
+            <postback> OI </postback>
+        </button>
+        </template>
+  </category>
+  
+  <category>
+      <pattern>PAGAMENTOCARANGUEJO</pattern>
+      <template>
+          <think><set name="passeio">passeio pela Passarela do Caranguejo</set></think>
+          Como você deseja pagar? 
+          <button>
+            <text>CRÉDITO</text>
+            <postback>FINALIZARCREDITO</postback>
+            </button>
+            
+            <button>
+            <text>DÉBITO</text>            
+            <postback>FINALIZARDEBITO</postback>
+        </button>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>PAGAMENTOORLAARACAJU</pattern>
+      <template>
+          <think><set name="passeio">passeio pela Orla de Aracaju</set></think>
+          Como você deseja pagar? 
+          <button>
+            <text>CRÉDITO</text>
+            <postback>FINALIZARCREDITO</postback>
+            </button>
+            
+            <button>
+            <text>DÉBITO</text>            
+            <postback>FINALIZARDEBITO</postback>
+        </button>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>respostasimFORTALEZA</pattern>
+      <template> 
+        <think><set name="passeio">passeio pelas Falésias Cearenses</set></think>
+        Qual meio de transporte você prefere?
+          <button>
+            <text>ÔNIBUS</text>
+            
+            <postback>PAGAMENTOONIBUS</postback>
+
+        </button>
+        <button>
+            <text>AVIÃO</text>
+             
+            <postback>PAGAMENTOAVIAO</postback>
+        </button>
+         
+      </template>
+  </category>
+  
+ 
+  
+   <category>
+      <pattern>PAGAMENTONOVEILHAS</pattern>
+      <template>
+          <think><set name="passeio">passeio das Nove Ilhas</set></think>
+          Como você deseja pagar? 
+          <button>
+            <text>CRÉDITO</text>
+            <postback>FINALIZARCREDITO</postback>
+            </button>
+            
+            <button>
+            <text>DÉBITO</text>            
+            <postback>FINALIZARDEBITO</postback>
+        </button>
+        </template>
+        </category>
+        
+        
+        
+         <category>
+      <pattern>PAGAMENTOONIBUS</pattern>
+      <template>
+          
+          Como você deseja pagar? 
+          <button>
+            <text>CRÉDITO</text>
+            <postback>FINALIZARCREDITOONIBUS</postback>
+            </button>
+            
+            <button>
+            <text>DÉBITO</text>            
+            <postback>FINALIZARDEBITOONIBUS</postback>
+        </button>
+        </template>
+        </category>
+        
+         <category>
+      <pattern>PAGAMENTOAVIAO</pattern>
+      <template>
+          Como você deseja pagar? 
+          <button>
+            <text>CRÉDITO</text>
+            <postback>FINALIZARCREDITOAVIAO</postback>
+            </button>
+            
+            <button>
+            <text>DÉBITO</text>            
+            <postback>FINALIZARDEBITOAVIAO</postback>
+        </button>
+        </template>
+        </category>
+        
+        <category>
+            <pattern>FINALIZARCREDITO</pattern>
+        <template>
+            <think><set name="pay">crédito</set></think> 
+        Seu pedido está sendo processado. Aguarde.
+        
+        <delay>3</delay>
+          Você vai viajar para <get name="destino"/> e vai fazer o <get name="passeio"/>
+          e vai pagar no <get name="pay"/>. Boa viagem!
+          </template>
+        </category>
+        
+        
+        <category>
+            <pattern>FINALIZARDEBITO</pattern>
+        <template>
+            <think><set name="pay">débito</set></think> 
+        Seu pedido está sendo processado. Aguarde.
+        
+        <delay>3</delay>
+          Você vai viajar para <get name="destino"/>, vai fazer o <get name="passeio"/> e vai pagar no <get name="pay"/>. Boa viagem!
+          </template>
+        </category>
+  
+   <category>
+            <pattern>FINALIZARCREDITOAVIAO</pattern>
+        <template>
+             <think><set name="transporte">avião</set></think> 
+            <think><set name="pay">crédito</set></think> 
+        Seu pedido está sendo processado. Aguarde.
+        
+        <delay>3</delay>
+          Você vai viajar para <get name="destino"/> e vai fazer o <get name="passeio"/> e vai pagar no <get name="pay"/>. Obs.: você será transportado por um <get name="transporte"/>. Boa viagem!
+          </template>
+        </category>
+        
+        
+        <category>
+            <pattern>FINALIZARDEBITOAVIAO</pattern>
+        <template>
+            <think><set name="transporte">avião</set></think> 
+            <think><set name="pay">débito</set></think> 
+        Seu pedido está sendo processado. Aguarde.
+        
+        <delay>3</delay>
+          Você vai viajar para <get name="destino"/>, vai fazer o <get name="passeio"/> e vai pagar no <get name="pay"/>. Obs.: você será transportado por um <get name="transporte"/>. Boa viagem!
+          </template>
+        </category>
+  
+
+<category>
+            <pattern>FINALIZARCREDITOONIBUS</pattern>
+        <template>
+             <think><set name="transporte">ônibus</set></think> 
+            <think><set name="pay">crédito</set></think> 
+        Seu pedido está sendo processado. Aguarde.
+        
+        <delay>3</delay>
+          Você vai viajar para <get name="destino"/> e vai fazer o <get name="passeio"/> e vai pagar no <get name="pay"/>. Obs.: você será transportado por um <get name="transporte"/>. Boa viagem!
+          </template>
+        </category>
+        
+        
+        <category>
+            <pattern>FINALIZARDEBITOONIBUS</pattern>
+        <template>
+            <think><set name="transporte">ônibus</set></think> 
+            <think><set name="pay">débito</set></think> 
+        Seu pedido está sendo processado. Aguarde.
+        
+        <delay>3</delay>
+          Você vai viajar para <get name="destino"/>, vai fazer o <get name="passeio"/> e vai pagar no <get name="pay"/>. Obs.: você será transportado por um <get name="transporte"/>. Boa viagem!
+          </template>
+        </category>
+
+
+
   
 
 </aiml>
