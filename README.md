@@ -8,7 +8,7 @@ Engenharia de Computação
 
 ### Problema de negócio 2: Empresa de Turismo
 
-> > < bot name = "Louise" >
+\>> < bot name = "Louise" >
 
 Este chatbot deve ser utilizado por uma empresa de turismo para vender um pacote turístico
 * Verifique com o usuário quais das cidades disponíveis ele quer viajar (maceio, aracaju ou fortaleza)
